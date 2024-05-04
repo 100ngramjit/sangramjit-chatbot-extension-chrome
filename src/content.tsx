@@ -34,6 +34,7 @@ const PlasmoOverlay = () => {
         switchImage.style.right = "8px"
         switchImage.style.cursor = "pointer"
         switchImage.style.background = "white"
+        switchImage.onclick = (e) => e.stopPropagation()
 
         const handleSwitchClick = () => {
           setChatOpen(true)
@@ -51,7 +52,11 @@ const PlasmoOverlay = () => {
 
         contentEditableDiv.addEventListener("focus", handleInputFocus)
         contentEditableDiv.addEventListener("blur", handleInputBlur)
-
+        if (chatOpen) {
+          document.body.addEventListener("click", () => {
+            setChatOpen(false)
+          })
+        }
         clearInterval(intervalId)
       }
     }

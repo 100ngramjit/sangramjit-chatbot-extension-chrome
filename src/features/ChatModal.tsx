@@ -43,7 +43,9 @@ export const ChatSection = () => {
   }
 
   return (
-    <div className="relative bg-white overflow-auto p-4 h-[250px] w-[420px] overflow-x-hidden shadow-lg">
+    <div
+      className="relative bg-white overflow-auto p-4 h-[250px] w-[420px] overflow-x-hidden shadow-lg"
+      onClick={(e) => e.stopPropagation()}>
       {messages.map((message, index) => (
         <div key={index} className="flex flex-col">
           <div className="flex items-center justify-end overflow-auto">
