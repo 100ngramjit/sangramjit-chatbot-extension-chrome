@@ -23,10 +23,6 @@ const PlasmoOverlay = () => {
       const contentEditableDiv = document.querySelector(
         ".msg-form__contenteditable"
       )
-      const contentEditableContainer = document.querySelector(
-        "msg-form__msg-content-container"
-      )
-
       if (contentEditableDiv) {
         const switchImage = document.createElement("img")
 
@@ -38,7 +34,6 @@ const PlasmoOverlay = () => {
         switchImage.style.right = "8px"
         switchImage.style.cursor = "pointer"
         switchImage.style.background = "white"
-        /* Vector */
 
         const handleSwitchClick = () => {
           setChatOpen(true)
@@ -67,17 +62,8 @@ const PlasmoOverlay = () => {
   }, [chatOpen])
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      {chatOpen && (
-        <div>
-          {/* <div
-            style={{ textAlign: "end", cursor: "pointer" }}
-            onClick={() => setChatOpen(false)}>
-            Close
-          </div> */}
-          <ChatSection />
-        </div>
-      )}
+    <div className="fixed top-[25%] left-[35%]">
+      {chatOpen && <ChatSection />}
     </div>
   )
 }
